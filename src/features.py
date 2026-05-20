@@ -7,6 +7,7 @@ output_path = sys.argv[2]
 
 df = pd.read_csv(input_path)
 
+df["duration_seconds"] = df["duration_seconds"].astype(int)
 df["duration_minutes"] = df["duration_seconds"] / 60
 df["weekday"] = pd.to_datetime(df["date"]).dt.strftime("%A")
 
